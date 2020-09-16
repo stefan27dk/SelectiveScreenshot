@@ -16,7 +16,7 @@ namespace SelectiveScreenshot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new SelectionScreenshot_Form4());
         }
     }
 }
