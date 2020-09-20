@@ -46,27 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main-Body-Form.cs">
+    <Compile Include="Forms\Main-Body-Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main-Body-Form.Designer.cs" />
-    <Compile Include="MenuFormSelectionScreenshot - Form5.cs">
+    <Compile Include="Forms\Main-Body-Form.Designer.cs" />
+    <Compile Include="Forms\MenuFormSelectionScreenshot - Form5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuFormSelectionScreenshot - Form5.Designer.cs" />
+    <Compile Include="Forms\MenuFormSelectionScreenshot - Form5.Designer.cs" />
+    <Compile Include="Forms\Start_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Start_Form.Designer.cs">
+      <DependentUpon>Start_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screenshot.cs" />
-    <Compile Include="SelectionScreenshot-Form4.cs">
+    <Compile Include="Classes\Screenshot.cs" />
+    <Compile Include="Forms\SelectionScreenshot-Form4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectionScreenshot-Form4.Designer.cs" />
-    <Compile Include="Transparent_Form.cs">
+    <Compile Include="Forms\SelectionScreenshot-Form4.Designer.cs" />
+    <Compile Include="Forms\Transparent_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transparent_Form.Designer.cs" />
-    <EmbeddedResource Include="Main-Body-Form.resx" />
-    <EmbeddedResource Include="MenuFormSelectionScreenshot - Form5.resx" />
+    <Compile Include="Forms\Transparent_Form.Designer.cs" />
+    <EmbeddedResource Include="Forms\Main-Body-Form.resx" />
+    <EmbeddedResource Include="Forms\MenuFormSelectionScreenshot - Form5.resx" />
+    <EmbeddedResource Include="Forms\Start_Form.resx">
+      <DependentUpon>Start_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,8 +86,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SelectionScreenshot-Form4.resx" />
-    <EmbeddedResource Include="Transparent_Form.resx" />
+    <EmbeddedResource Include="Forms\SelectionScreenshot-Form4.resx" />
+    <EmbeddedResource Include="Forms\Transparent_Form.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1453,6 +1462,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Zoom-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Franksouza183-Fs-Actions-cut.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

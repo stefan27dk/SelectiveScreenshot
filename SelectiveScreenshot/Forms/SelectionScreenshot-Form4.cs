@@ -12,25 +12,26 @@ using Domain;
 using System.Diagnostics;
 using System.Media;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace SelectiveScreenshot
 {
     public partial class SelectionScreenshot_Form4 : Form
     {
 
-        MenuFormSelectionScreenshot___Form5 menuForm = new MenuFormSelectionScreenshot___Form5();
+        MenuFormSelectionScreenshot___Form5 menuForm; // The Bottom tool bar background
         private bool canDraw;
         private int startX, startY;
         private Rectangle rect = Screen.GetBounds(Point.Empty);
         Screenshot screenshot;
         string LocalFolderPath = "C://";
 
-
+        Form thisForm;
 
         // Initialize
         public SelectionScreenshot_Form4()
         {
-            menuForm.Show();
+               
             this.TransparencyKey = Color.Turquoise;   // Transparent BackColor
             this.BackColor = Color.Turquoise;   // Transparent BackColor
             this.DoubleBuffered = true; // Removes Flickering on drawing
@@ -45,12 +46,28 @@ namespace SelectiveScreenshot
         // LOAD
         private void SelectionScreenshot_Form4_Load(object sender, EventArgs e)
         {
-          
-
+            this.ShowInTaskbar = false; // Dont show in taskbar
+            Show_Bottom_Menu_Form();   // Show bottom menu Form , braun transparent form
         }
 
 
-     
+
+
+
+
+
+        private void Show_Bottom_Menu_Form() // Method - Show bottom menu Form , braun transparent form 
+        {
+            if (menuForm == null)
+            {
+                menuForm = new MenuFormSelectionScreenshot___Form5(); // The Bottom tool bar background
+            }
+
+            if (menuForm.Visible == false)
+            {
+                menuForm.Show();
+            }
+        }
 
 
        // Start Point of Draw "Rectangle"
@@ -193,16 +210,16 @@ namespace SelectiveScreenshot
          // On Selection Screen "FORM Closing" close the menu with the "Save, Edit in Paint, Open folder, etc.  "The menu is made of another Form because of the transparency" On Selection Screenshot Form CLose the menu is also closed
         private void SelectionScreenshot_Form4_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (menuForm == null)
-            {
-               menuForm = new MenuFormSelectionScreenshot___Form5();
-               menuForm.Show();
-            }
+            //if (menuForm == null)
+            //{
+            //   menuForm = new MenuFormSelectionScreenshot___Form5();
+            //   menuForm.Show();
+            //}
 
      
            if (menuForm != null)
            {
-           menuForm.Close();
+             menuForm.Dispose();
            }
 
         }
@@ -322,7 +339,18 @@ namespace SelectiveScreenshot
             {
                 MakeScreenshotNow();
             }
-                  
+
+            if (keyData == (Keys.Control | Keys.B))
+            {
+                thisForm.Visible = true;
+            }
+
+            if (keyData == (Keys.Control | Keys.H))
+            {
+                thisForm = this;
+                this.Hide();
+            }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 

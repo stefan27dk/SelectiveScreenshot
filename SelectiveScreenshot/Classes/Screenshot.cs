@@ -18,7 +18,9 @@ namespace Domain
 
         public Screenshot()  // Constructor
         {
+
             ScreenshotSavePath = "C://";
+
             ScreenshotNameDateTime = "ScreenShot -"+DateTime.Now.ToString("dd -MM-yyyy  HH-mm-ss");
         }
 
@@ -115,17 +117,17 @@ namespace Domain
             Form currentForm = Form.ActiveForm; // Get current Form
 
             int locationX = currentForm.Location.X + selection.Location.X + 8; // + 8; "If form has Normal Border + 8" // Get Form Location x and plus it with the rectangle X: So we know where on the screen is the rectangle. The rectangles scope is only in the Forms scope "The 8px Tolerance is because of the Forms window itself "The window border"
-            int locationY = currentForm.Location.Y + selection.Location.Y +26 ; // + 30; "If form has Border + 30"
+            int locationY = currentForm.Location.Y + selection.Location.Y +26 ; // + 30; "If form has Border + 30" at the top
             
              
-            using (Bitmap bmp = new Bitmap(selection.Width, selection.Height, PixelFormat.Format32bppArgb))
+            using (Bitmap bmp = new Bitmap(selection.Width -2, selection.Height -2, PixelFormat.Format32bppArgb))  // -2 because the border of the selector rectangle
             {
 
                 using (Graphics g = Graphics.FromImage(bmp))
                 {
-
-                    g.CopyFromScreen(locationX, locationY, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);
-                    bmp.Save($"{ScreenshotSavePath}{ScreenshotNameDateTime}.png", ImageFormat.Png);// Screenshot -  Unique Name so it dont get overwrited everytime new screenshot is made
+                         
+                    g.CopyFromScreen(locationX +1, locationY +1, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);   // +1  because the border of the selector rectangle
+                        bmp.Save($"{ScreenshotSavePath}{ScreenshotNameDateTime}.png", ImageFormat.Png);// Screenshot -  Unique Name so it dont get overwrited everytime new screenshot is made
                 
                         // To Clipboard
                         Clipboard.SetDataObject(bmp);

@@ -26,14 +26,14 @@ namespace SelectiveScreenshot
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+         
+         // Load
         private void MenuFormSelectionScreenshot___Form5_Load(object sender, EventArgs e)
         {
-            
+            this.ShowInTaskbar = false; // Dont show in taskbar  
         }
+
+
+   
     }
 }
