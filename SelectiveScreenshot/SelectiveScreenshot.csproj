@@ -1491,5 +1491,14 @@
   <ItemGroup>
     <None Include="Resources\App-keyboard-icon %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big close button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_paint.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,7 +49,7 @@
             this.Controls.Add(this.border_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuFormSelectionScreenshot___Form5";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.6D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuFormSelectionScreenshot___Form5";
             this.Load += new System.EventHandler(this.MenuFormSelectionScreenshot___Form5_Load);

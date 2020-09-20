@@ -85,12 +85,13 @@ namespace SelectiveScreenshot
                 startY = e.Y;
             }
 
-     
-            if(e.Button == MouseButtons.Right)// If Mouse Right Button pressed Make Screenshot
+            if (e.Button == MouseButtons.Right)// If Mouse Right Button pressed Hide Menu
             {
-                MakeScreenshotNow();
-            }
 
+                bottom_menu_Screenshot_panel.Visible = false; // Hide
+                menuForm.Hide();
+            }
+           
         }
 
 
@@ -102,6 +103,16 @@ namespace SelectiveScreenshot
         private void SelectionScreenshot_Form4_MouseUp(object sender, MouseEventArgs e)
         {
             canDraw = false;  // When you leave the mouse button you stop drawing the rectangle 
+
+            if (e.Button == MouseButtons.Right)// If Mouse Right Button pressed Make Screenshot
+            {
+
+                MakeScreenshotNow();
+                bottom_menu_Screenshot_panel.Visible = true; // Show Menu 
+                menuForm.Show();
+                this.Activate(); // Focus the Screenshot form because the menuForm got showed up
+            }
+              
         }
 
 
@@ -155,9 +166,8 @@ namespace SelectiveScreenshot
 
         // Make Screenshot button " Discet"
         private void selectionScreenshot_button_Click(object sender, EventArgs e)  // Make Screenshot form the Selection
-        {
-            MakeScreenshotNow();
-        
+        {      
+            MakeScreenshotNow();   
         }
 
 
@@ -168,9 +178,7 @@ namespace SelectiveScreenshot
          // The Main Method - Make Screenshot
         private void MakeScreenshotNow()
         {
-            //Hide All Buttons   
-            
-            
+            //Hide All Buttons     
             Cursor.Current = Cursors.WaitCursor;
             screenshot.ScreenshotNameDateTime = "ScreenShot -" + DateTime.Now.ToString("dd -MM-yyyy  HH-mm-ss"); // Screenshot New Name
 
@@ -178,16 +186,20 @@ namespace SelectiveScreenshot
             SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             simpleSound.Play();
 
-            //Scrennshot   
-            screenshot.MakeSelectionScreenshot(rect);   // Screenshot Class Method
+            //Scrennshot    
+             screenshot.MakeSelectionScreenshot(rect);   // Screenshot Class Method
+
+       
 
             Cursor.Current = Cursors.Default;
 
             //SHOW ALL Buttons Again --------
-      
+ 
+
+
         }
 
-         
+
 
 
 

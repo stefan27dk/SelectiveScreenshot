@@ -1103,6 +1103,16 @@ namespace SelectiveScreenshot.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap big_close_button {
+            get {
+                object obj = ResourceManager.GetObject("big close button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Block___Back_Panel {
             get {
                 object obj = ResourceManager.GetObject("Block___Back_Panel", resourceCulture);
@@ -2331,6 +2341,16 @@ namespace SelectiveScreenshot.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Help_icon {
+            get {
+                object obj = ResourceManager.GetObject("Help-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon hnet_com_image {
@@ -2507,6 +2527,16 @@ namespace SelectiveScreenshot.Properties {
         internal static System.Drawing.Bitmap libreoffice_writer_icon {
             get {
                 object obj = ResourceManager.GetObject("libreoffice_writer_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap light_paint {
+            get {
+                object obj = ResourceManager.GetObject("light_paint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
