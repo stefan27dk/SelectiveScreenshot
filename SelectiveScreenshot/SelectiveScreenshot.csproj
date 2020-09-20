@@ -1466,5 +1466,23 @@
   <ItemGroup>
     <None Include="Resources\Franksouza183-Fs-Actions-cut.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeButtonHovered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Start-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderDes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\App-keyboard-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\App-keyboard-icon %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

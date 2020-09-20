@@ -20,8 +20,29 @@ namespace SelectiveScreenshot.Forms
         SelectionScreenshot_Form4 Selection_Screenshot;
 
 
-       // Register HotKey-----------------------::START::------------------------------------------------------------------>  
-       // Dll import for registering HotKeys
+        //Form Round Corners------::START::--------------------------------------------------->
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+         int nLeftRect,     // x-coordinate of upper-left corner
+         int nTopRect,      // y-coordinate of upper-left corner
+         int nRightRect,    // x-coordinate of lower-right corner
+         int nBottomRect,   // y-coordinate of lower-right corner
+         int nWidthEllipse, // width of ellipse
+         int nHeightEllipse // height of ellipse
+        );
+
+        //Form Round Corners------::END::----------------------------------------------------<
+
+
+
+
+
+
+
+
+        // Register HotKey-----------------------::START::------------------------------------------------------------------>  
+        // Dll import for registering HotKeys
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
         [DllImport("user32.dll")]
@@ -67,12 +88,18 @@ namespace SelectiveScreenshot.Forms
         // Notify Icon
         NotifyIcon notify1 = new NotifyIcon();
 
-
+       
 
         //Initialize
         public Start_Form()
         {
             InitializeComponent();
+
+            // Round Corners of Form ::START::
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
+            // Round Corners of Form ::END::
+
             this.ShowInTaskbar = false;
         }
 
@@ -80,11 +107,11 @@ namespace SelectiveScreenshot.Forms
 
         // Load
         private void Start_Form_Load(object sender, EventArgs e)
-        {    
-            
+        {
+          
             //var Startup = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
             // The Form
-         
+
             //this.WindowState = FormWindowState.Minimized;  // Minimize it on startup      
             RegisterShortcut(); // Register the shortcut
             Check_For_StartUP(); // Check for startUp     
@@ -96,7 +123,7 @@ namespace SelectiveScreenshot.Forms
         // Form Location
         private void Form_Position()  
         {       
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, Screen.PrimaryScreen.Bounds.Height - this.Height - 45); // Form Bottom Right Position
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width -10, Screen.PrimaryScreen.Bounds.Height - this.Height - 45); // Form Bottom Right Position
         }
     
 
@@ -152,6 +179,7 @@ namespace SelectiveScreenshot.Forms
             Form_Position(); // Form Start Position
             this.Visible = true;     
             Cursor.Position = new Point(this.DesktopLocation.X + this.Width/2, this.DesktopLocation.Y + this.Height/2); // Show Mouse in the middle of the form
+            this.Activate(); // Used for hiding the form if user clicks outside of it
         }
 
 
@@ -233,5 +261,66 @@ namespace SelectiveScreenshot.Forms
             }
                
         }
+
+     
+
+
+        // Deactivate - If user clicks outside the form the form is hidden
+        private void Start_Form_Deactivate(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void close_form_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
+        //Close Button::::START::     
+        // Close Button Hovered
+        private void close_form_button_MouseEnter(object sender, EventArgs e)
+        {
+            close_form_button.BackgroundImage = Properties.Resources.closeButtonHovered;
+            close_form_button.BackgroundImageLayout = ImageLayout.Center;
+
+        }
+
+
+        // reset background Image after removing the mouse "hover"
+        private void close_form_button_MouseLeave(object sender, EventArgs e)
+        {
+            close_form_button.BackgroundImage = Properties.Resources.closeButton;
+            close_form_button.BackgroundImageLayout = ImageLayout.Center;
+        }
+
+
+
+
+        // Show Shortcuts         
+        private void show_shortcut_label_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+            // Show Shorctut Panel
+            if (shortcut_panel.Visible == false)
+            {
+                this.Size = new Size(this.Size.Width, this.Size.Height + 100); // Form +100 to show the shortcuts
+                Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10)); // Form Rounded Corners
+                this.Location = new Point(this.Location.X, this.Location.Y - 100); // Move Form Up so you can see the shortcuts
+                shortcut_panel.Visible = true;
+                Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y - 100); // Move Mouse To shortcut label
+
+            }
+            else   // Hide Shorctut Panel
+            {
+                this.Size = new Size(this.Size.Width, this.Size.Height - 100);    
+                this.Location = new Point(this.Location.X, this.Location.Y + 100);          
+                shortcut_panel.Visible = false;
+                Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + 100); // Move Mouse To shortcut label
+            }
+        }
+        //Close Button::::END::
+
     }
 }

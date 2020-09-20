@@ -663,6 +663,26 @@ namespace SelectiveScreenshot.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap App_keyboard_icon {
+            get {
+                object obj = ResourceManager.GetObject("App-keyboard-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap App_keyboard_icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("App-keyboard-icon (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap App_klickety_game_icon {
             get {
                 object obj = ResourceManager.GetObject("App_klickety_game_icon", resourceCulture);
@@ -1356,6 +1376,26 @@ namespace SelectiveScreenshot.Properties {
         internal static System.Drawing.Bitmap Clockwise_arrow_icon {
             get {
                 object obj = ResourceManager.GetObject("Clockwise_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap closeButton {
+            get {
+                object obj = ResourceManager.GetObject("closeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap closeButtonHovered {
+            get {
+                object obj = ResourceManager.GetObject("closeButtonHovered", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2206,6 +2246,16 @@ namespace SelectiveScreenshot.Properties {
         internal static System.Drawing.Bitmap folder_icon {
             get {
                 object obj = ResourceManager.GetObject("folder_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap folderDes {
+            get {
+                object obj = ResourceManager.GetObject("folderDes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -3527,6 +3577,16 @@ namespace SelectiveScreenshot.Properties {
         internal static System.Drawing.Bitmap Sql___Script {
             get {
                 object obj = ResourceManager.GetObject("Sql___Script", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Start_icon {
+            get {
+                object obj = ResourceManager.GetObject("Start_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
