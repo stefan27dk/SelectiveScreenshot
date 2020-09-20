@@ -34,8 +34,8 @@ namespace SelectiveScreenshot
         {       
             this.TransparencyKey = Color.Turquoise;   // Transparent BackColor
             this.BackColor = Color.Turquoise;   // Transparent BackColor
-            this.DoubleBuffered = true; // Removes Flickering on drawing
- 
+            this.DoubleBuffered = true; // Removes Flickering on drawing     
+            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
         }
 
