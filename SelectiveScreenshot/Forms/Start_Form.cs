@@ -247,17 +247,17 @@ namespace SelectiveScreenshot.Forms
 
 
 
-        //!!!!!!!!FILE DIALOG GET PATH FOR IMAGES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DO THIS
+        //Change Path
         private void change_path_button_Click(object sender, EventArgs e)
         {
-            Screenshot screenshot = new Screenshot();
+           
             FolderBrowserDialog get_new_path_dialog = new FolderBrowserDialog(); 
             
             if(get_new_path_dialog.ShowDialog(this) == DialogResult.OK)
             {
-                
-                screenshot.ScreenshotSavePath = get_new_path_dialog.SelectedPath;
-                MessageBox.Show(get_new_path_dialog.SelectedPath, "", MessageBoxButtons.OK);
+
+                Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath = get_new_path_dialog.SelectedPath +"\\";
+                //MessageBox.Show(get_new_path_dialog.SelectedPath, "", MessageBoxButtons.OK);
             }
                
         }

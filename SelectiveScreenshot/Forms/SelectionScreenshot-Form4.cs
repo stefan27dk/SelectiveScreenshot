@@ -23,8 +23,8 @@ namespace SelectiveScreenshot
         private bool canDraw;
         private int startX, startY;
         private Rectangle rect = Screen.GetBounds(Point.Empty);
-        Screenshot screenshot;
-        string LocalFolderPath = "C://";
+        Screenshot screenshot = Screenshot.Get_Screenshot_Class_Instance();
+        string LocalFolderPath = Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath;
 
         Form thisForm;
 
@@ -168,18 +168,17 @@ namespace SelectiveScreenshot
          // The Main Method - Make Screenshot
         private void MakeScreenshotNow()
         {
-            //Hide All Buttons
-       
-             
+            //Hide All Buttons   
+            
+            
             Cursor.Current = Cursors.WaitCursor;
-
+            screenshot.ScreenshotNameDateTime = "ScreenShot -" + DateTime.Now.ToString("dd -MM-yyyy  HH-mm-ss"); // Screenshot New Name
 
             //Sound-------------
             SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             simpleSound.Play();
 
-            //Scrennshot
-            screenshot = new Screenshot();
+            //Scrennshot   
             screenshot.MakeSelectionScreenshot(rect);   // Screenshot Class Method
 
             Cursor.Current = Cursors.Default;
@@ -367,8 +366,7 @@ namespace SelectiveScreenshot
             SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\recycle.wav");
             simpleSound.Play();
 
-            // Opens Folder
-            screenshot = new Screenshot();
+            // Opens Folder  
             Process.Start($@"{screenshot.ScreenshotSavePath}"); // Opens Default App - Directory with Screenshots, Pdf etc.
             this.Close();
 
@@ -447,6 +445,16 @@ namespace SelectiveScreenshot
 
             tip.SetToolTip(closeForm_button, "EXIT Press: \"ESC\"");
         }
+
+
+        // Activate on DEactive - Focus if it losses focus            
+        private void SelectionScreenshot_Form4_Deactivate(object sender, EventArgs e)
+        {
+            this.Activate();
+        }
+
+
+
 
         //---------ToolTips---::END::------------------------------------------------------------------------------------------------------------------------------------------------------------
 

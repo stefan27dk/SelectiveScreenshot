@@ -664,10 +664,8 @@ namespace SelectiveScreenshot
         private void Form_Screenshot()
         {
             SoundPlayer sscreenshotSound = new SoundPlayer(@"C:\\Windows\Media\Windows Information Bar.wav");
-            sscreenshotSound.Play();
-
-            Screenshot screenshot = new Screenshot();
-            screenshot.MakeFormScreenshot();
+            sscreenshotSound.Play();     
+            Screenshot.Get_Screenshot_Class_Instance().MakeFormScreenshot();  
         }
 
         //-------------Buttons---Hover--------------<<<<--------------------------------

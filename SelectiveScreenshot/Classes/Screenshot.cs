@@ -13,25 +13,39 @@ namespace Domain
     class Screenshot
     {
 
-     public  string ScreenshotNameDateTime { get; set; } 
-     public  string ScreenshotSavePath { get; set; }
+     public  string ScreenshotNameDateTime { get; set; }
+        public  string ScreenshotSavePath { get; set; } = "C://";
 
-        public Screenshot()  // Constructor
-        {
+        private static Screenshot singleton_Screenshot_Class = null; // Part of Singleton  
 
-            ScreenshotSavePath = "C://";
 
-            ScreenshotNameDateTime = "ScreenShot -"+DateTime.Now.ToString("dd -MM-yyyy  HH-mm-ss");
+        protected Screenshot()  // Constructor
+        {    
+            //ScreenshotSavePath = "C://";       
+            //ScreenshotNameDateTime = "ScreenShot -"+DateTime.Now.ToString("dd -MM-yyyy  HH-mm-ss");
         }
 
 
 
+
+         // Singleton Method - Get Instance
+         public static Screenshot Get_Screenshot_Class_Instance()
+         {
+             if(singleton_Screenshot_Class == null)
+             {
+                singleton_Screenshot_Class = new Screenshot();
+             }
+            
+             return singleton_Screenshot_Class;
+           
+         }
 
 
 
         //----------------Screenshot-Entire--Screen-----::START::--------------------------------------------------------------------------------------------
         public void MakeScrenshot()
         {
+            
             Rectangle screenBounds = Screen.GetBounds(Point.Empty); // The Screen Area
             using (Bitmap bmp = new Bitmap(screenBounds.Width, screenBounds.Height)) // New Bitmap
             {

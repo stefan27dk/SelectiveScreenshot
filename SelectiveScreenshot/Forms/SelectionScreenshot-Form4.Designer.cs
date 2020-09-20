@@ -137,6 +137,7 @@
             this.Text = "SelectionScreenshot_Form4";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Deactivate += new System.EventHandler(this.SelectionScreenshot_Form4_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectionScreenshot_Form4_FormClosing);
             this.Load += new System.EventHandler(this.SelectionScreenshot_Form4_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SelectionScreenshot_Form4_KeyDown);
