@@ -248,9 +248,7 @@
             this.Text = "Selection Screenshot";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Deactivate += new System.EventHandler(this.Start_Form_Deactivate);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Start_Form_FormClosing);
             this.Load += new System.EventHandler(this.Start_Form_Load);
-            this.Resize += new System.EventHandler(this.Start_Form_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.shortcut_panel.ResumeLayout(false);
