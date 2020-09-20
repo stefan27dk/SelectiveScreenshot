@@ -152,12 +152,7 @@ namespace SelectiveScreenshot.Forms
                 notify1.Click += ShowForm;
                 notify1.ContextMenu = context_menu_notify;
                 notify1.Visible = true;
-            }
-            else
-            {    
-                notify1 = null;  
-            }
-            
+            }    
         }
 
 
@@ -166,8 +161,9 @@ namespace SelectiveScreenshot.Forms
 
         // Exit Form
         private void Close_Form(object sender, EventArgs e)
-        {    
-            Application.Exit();
+        {
+            notify1.Dispose(); // remove Notify Ico from Tray so it does not apear again next time and get dublicates
+            this.Dispose();
         }
 
         
@@ -189,9 +185,9 @@ namespace SelectiveScreenshot.Forms
         // Before form closes
         private void Start_Form_FormClosing(object sender, FormClosingEventArgs e)
         {   
-            e.Cancel = true;   
-            this.Hide();
-            this.WindowState = FormWindowState.Minimized;          
+            //e.Cancel = true;   
+            //this.Hide();
+            //this.WindowState = FormWindowState.Minimized;          
         }
 
 
@@ -268,17 +264,25 @@ namespace SelectiveScreenshot.Forms
         // Deactivate - If user clicks outside the form the form is hidden
         private void Start_Form_Deactivate(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
+
+
+
+
+
+        //Close Button::::START::----------------------------------------------     
+
+        // Hide Form Close custom button
         private void close_form_button_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            //this.WindowState = FormWindowState.Minimized;
         }
 
 
 
-        //Close Button::::START::     
         // Close Button Hovered
         private void close_form_button_MouseEnter(object sender, EventArgs e)
         {
@@ -288,12 +292,16 @@ namespace SelectiveScreenshot.Forms
         }
 
 
-        // reset background Image after removing the mouse "hover"
+        // Reset background Image after removing the mouse "hover"
         private void close_form_button_MouseLeave(object sender, EventArgs e)
         {
             close_form_button.BackgroundImage = Properties.Resources.closeButton;
             close_form_button.BackgroundImageLayout = ImageLayout.Center;
         }
+         //Close Button::::END::------------------------------------------------
+
+
+
 
 
 
@@ -320,7 +328,7 @@ namespace SelectiveScreenshot.Forms
                 Cursor.Position = new Point(Cursor.Position.X, Cursor.Position.Y + 100); // Move Mouse To shortcut label
             }
         }
-        //Close Button::::END::
+       
 
     }
 }
