@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SelectiveScreenshot.Forms
 {
@@ -88,7 +90,8 @@ namespace SelectiveScreenshot.Forms
         // Notify Icon
         NotifyIcon notify1 = new NotifyIcon();
 
-       
+         // XML File Path
+         string xml_file_options_path = "C:\\Selection_Screenshot_Options.xml";
 
         //Initialize
         public Start_Form()
@@ -115,6 +118,7 @@ namespace SelectiveScreenshot.Forms
             //this.WindowState = FormWindowState.Minimized;  // Minimize it on startup      
             RegisterShortcut(); // Register the shortcut
             Check_For_StartUP(); // Check for startUp     
+            Load_Path(); // Load Save path
         }
 
 
@@ -166,8 +170,9 @@ namespace SelectiveScreenshot.Forms
 
         // Exit Form
         private void Close_Form(object sender, EventArgs e)
-        {    
-            Application.Exit();
+        {
+            this.Dispose();
+            //Application.Exit();
         }
 
         
@@ -254,15 +259,60 @@ namespace SelectiveScreenshot.Forms
             FolderBrowserDialog get_new_path_dialog = new FolderBrowserDialog(); 
             
             if(get_new_path_dialog.ShowDialog(this) == DialogResult.OK)
-            {
-
-                Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath = get_new_path_dialog.SelectedPath +"\\";
+            {   
+                string newPath = get_new_path_dialog.SelectedPath + "\\";
+                Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath = newPath;
+                Save_To_XML_File(newPath);
                 //MessageBox.Show(get_new_path_dialog.SelectedPath, "", MessageBoxButtons.OK);
             }
                
         }
 
      
+
+
+
+        // Save Path to XML FIle
+        private void Save_To_XML_File(string Path)
+        {
+
+            using (XmlTextWriter savePath = new XmlTextWriter(xml_file_options_path, null))
+            {    
+                savePath.WriteStartDocument();
+                savePath.WriteStartElement("path_to_save");
+                savePath.WriteAttributeString("path", Path); // The Data // The saved  Path
+                savePath.WriteEndElement();
+                savePath.WriteEndDocument();
+                savePath.Close();
+            }
+        }
+
+
+        // Load XML File with path
+        private void Load_Path()
+        {
+            if (File.Exists(xml_file_options_path)) // If File Exists
+            {
+                using (XmlReader xml_reader = XmlReader.Create(xml_file_options_path))
+                {
+                    while (xml_reader.Read())
+                    {
+                        if((xml_reader.NodeType == XmlNodeType.Element) && (xml_reader.Name =="path_to_save"))
+                        {
+                            if(xml_reader.HasAttributes)
+                            {
+                                Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath = xml_reader.GetAttribute("path").ToString();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
 
 
         // Deactivate - If user clicks outside the form the form is hidden

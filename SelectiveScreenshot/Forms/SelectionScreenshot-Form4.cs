@@ -31,8 +31,7 @@ namespace SelectiveScreenshot
 
         // Initialize
         public SelectionScreenshot_Form4()
-        {
-               
+        {       
             this.TransparencyKey = Color.Turquoise;   // Transparent BackColor
             this.BackColor = Color.Turquoise;   // Transparent BackColor
             this.DoubleBuffered = true; // Removes Flickering on drawing
