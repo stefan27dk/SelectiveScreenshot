@@ -130,8 +130,8 @@ namespace Domain
 
             Form currentForm = Form.ActiveForm; // Get current Form
 
-            int locationX = currentForm.Location.X + selection.Location.X + 8; // + 8; "If form has Normal Border + 8" // Get Form Location x and plus it with the rectangle X: So we know where on the screen is the rectangle. The rectangles scope is only in the Forms scope "The 8px Tolerance is because of the Forms window itself "The window border"
-            int locationY = currentForm.Location.Y + selection.Location.Y +26 ; // + 30; "If form has Border + 30" at the top
+            int locationX = currentForm.Location.X + selection.Location.X; // + 8; "If form has Normal Border + 8" // Get Form Location x and plus it with the rectangle X: So we know where on the screen is the rectangle. The rectangles scope is only in the Forms scope "The 8px Tolerance is because of the Forms window itself "The window border"
+            int locationY = currentForm.Location.Y + selection.Location.Y; // + 30; "If form has Border + 30" at the top
             
              
             using (Bitmap bmp = new Bitmap(selection.Width -2, selection.Height -2, PixelFormat.Format32bppArgb))  // -2 because the border of the selector rectangle

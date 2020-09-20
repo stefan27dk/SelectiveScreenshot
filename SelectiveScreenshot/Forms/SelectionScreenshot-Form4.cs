@@ -22,7 +22,8 @@ namespace SelectiveScreenshot
         MenuFormSelectionScreenshot___Form5 menuForm; // The Bottom tool bar background
         private bool canDraw;
         private int startX, startY;
-        private Rectangle rect = Screen.GetBounds(Point.Empty);
+        //private Rectangle rect = Screen.GetBounds(Point.Empty);
+        private Rectangle rect = new Rectangle(new Point(10,10), new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height));
         Screenshot screenshot = Screenshot.Get_Screenshot_Class_Instance();
         string LocalFolderPath = Screenshot.Get_Screenshot_Class_Instance().ScreenshotSavePath;
 

@@ -153,7 +153,7 @@
             this.bottom_menu_Screenshot_panel.Controls.Add(this.selectionScreenshot_button);
             this.bottom_menu_Screenshot_panel.Controls.Add(this.closeForm_button);
             this.bottom_menu_Screenshot_panel.Controls.Add(this.openFolder_button);
-            this.bottom_menu_Screenshot_panel.Location = new System.Drawing.Point(14, 415);
+            this.bottom_menu_Screenshot_panel.Location = new System.Drawing.Point(14, 408);
             this.bottom_menu_Screenshot_panel.Name = "bottom_menu_Screenshot_panel";
             this.bottom_menu_Screenshot_panel.Size = new System.Drawing.Size(201, 31);
             this.bottom_menu_Screenshot_panel.TabIndex = 6;
@@ -165,7 +165,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bottom_menu_Screenshot_panel);
             this.Controls.Add(this.help_label);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectionScreenshot_Form4";
             this.Text = "Selection Screenshot";
             this.TopMost = true;
