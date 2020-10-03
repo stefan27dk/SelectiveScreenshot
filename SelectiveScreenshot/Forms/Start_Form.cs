@@ -197,11 +197,16 @@ namespace SelectiveScreenshot.Forms
             RegistryKey registry_key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);   
             if (startup_checkBox.Checked == true)
             {
-                registry_key.SetValue("Selection Screenshot", Application.ExecutablePath); //Create Key   
+                if(registry_key.GetValueNames().Contains("Selection Screenshot") == false)   // If key dont Exists Create it
+                {
+                 registry_key.SetValue("Selection Screenshot", Application.ExecutablePath); //Create Key   
+                    registry_key.Close();
+                }
             }
-            else
+            else   // on Uncheck Delete the key
             {
                 registry_key.DeleteValue("Selection Screenshot", false);  // Delete Key
+                registry_key.Close();
             }
                   
         }
@@ -224,6 +229,8 @@ namespace SelectiveScreenshot.Forms
             {
                 startup_checkBox.Checked = false; 
             }
+
+            registry_key.Dispose();
         }
 
 

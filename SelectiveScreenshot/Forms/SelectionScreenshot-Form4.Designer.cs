@@ -47,7 +47,7 @@
             this.help_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.help_label.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.help_label.ForeColor = System.Drawing.Color.Lavender;
-            this.help_label.Location = new System.Drawing.Point(221, -24);
+            this.help_label.Location = new System.Drawing.Point(221, 499);
             this.help_label.Name = "help_label";
             this.help_label.Size = new System.Drawing.Size(663, 25);
             this.help_label.TabIndex = 4;
@@ -153,7 +153,7 @@
             this.bottom_menu_Screenshot_panel.Controls.Add(this.selectionScreenshot_button);
             this.bottom_menu_Screenshot_panel.Controls.Add(this.closeForm_button);
             this.bottom_menu_Screenshot_panel.Controls.Add(this.openFolder_button);
-            this.bottom_menu_Screenshot_panel.Location = new System.Drawing.Point(14, -31);
+            this.bottom_menu_Screenshot_panel.Location = new System.Drawing.Point(14, 492);
             this.bottom_menu_Screenshot_panel.Name = "bottom_menu_Screenshot_panel";
             this.bottom_menu_Screenshot_panel.Size = new System.Drawing.Size(201, 31);
             this.bottom_menu_Screenshot_panel.TabIndex = 6;
@@ -163,14 +163,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Turquoise;
-            this.ClientSize = new System.Drawing.Size(12, 11);
+            this.ClientSize = new System.Drawing.Size(949, 534);
             this.Controls.Add(this.bottom_menu_Screenshot_panel);
             this.Controls.Add(this.help_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectionScreenshot_Form4";
             this.Text = "Selection Screenshot";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.Turquoise;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Deactivate += new System.EventHandler(this.SelectionScreenshot_Form4_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectionScreenshot_Form4_FormClosing);

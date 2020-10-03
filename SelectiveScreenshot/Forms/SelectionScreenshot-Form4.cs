@@ -31,11 +31,13 @@ namespace SelectiveScreenshot
 
         // Initialize
         public SelectionScreenshot_Form4()
-        {       
+        {
+            this.Activate();
             this.TransparencyKey = Color.Turquoise;   // Transparent BackColor
             this.BackColor = Color.Turquoise;   // Transparent BackColor
             this.DoubleBuffered = true; // Removes Flickering on drawing     
             this.WindowState = FormWindowState.Maximized;
+        
             InitializeComponent();
         }
 
@@ -46,8 +48,8 @@ namespace SelectiveScreenshot
         // LOAD
         private void SelectionScreenshot_Form4_Load(object sender, EventArgs e)
         {
-            this.ShowInTaskbar = false; // Dont show in taskbar
-            Show_Bottom_Menu_Form();   // Show bottom menu Form , braun transparent form
+            this.ShowInTaskbar = false; // Dont show in taskbar       
+            Show_Bottom_Menu_Form();   // Show bottom menu Form , braun transparent form         
         }
 
 

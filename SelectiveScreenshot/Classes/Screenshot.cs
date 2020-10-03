@@ -142,12 +142,12 @@ namespace Domain
                          
                     g.CopyFromScreen(locationX +1, locationY +1, 0, 0, bmp.Size, CopyPixelOperation.SourceCopy);   // +1  because the border of the selector rectangle
                         bmp.Save($"{ScreenshotSavePath}{ScreenshotNameDateTime}.png", ImageFormat.Png);// Screenshot -  Unique Name so it dont get overwrited everytime new screenshot is made
-                
+
                         // To Clipboard
-                        Clipboard.SetDataObject(bmp);
-                        Image image = (Image)Clipboard.GetDataObject().GetData(DataFormats.Bitmap);
-                        Clipboard.SetDataObject(image);
-                     
+                        //Clipboard.SetDataObject(bmp);
+                        //Image image = (Image)Clipboard.GetDataObject().GetData(DataFormats.Bitmap);
+                        //Clipboard.SetDataObject(image);   
+                        Clipboard.SetImage((Image)bmp);
 
                     }
 
@@ -161,7 +161,7 @@ namespace Domain
                 exception = true;
             }
 
-            if(exception == true) // If there is exceptio play Failed sound - // Exception can happen because the rectangle can be null
+            if(exception == true) // If there is exception play Failed sound - // Exception can happen because the rectangle can be null
             {
                 PlaySound();
             }
