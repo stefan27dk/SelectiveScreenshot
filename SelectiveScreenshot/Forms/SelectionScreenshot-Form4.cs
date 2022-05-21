@@ -114,6 +114,11 @@ namespace SelectiveScreenshot
                 menuForm.Show();
                 this.Activate(); // Focus the Screenshot form because the menuForm got showed up
             }
+            else if(e.Button == MouseButtons.Middle)
+            {
+                MakeScreenshotNow();
+                CloseForm();
+            }
               
         }
 
@@ -196,9 +201,7 @@ namespace SelectiveScreenshot
             Cursor.Current = Cursors.Default;
 
             //SHOW ALL Buttons Again --------
- 
-
-
+  
         }
 
 
@@ -211,9 +214,7 @@ namespace SelectiveScreenshot
             if(e.KeyCode == Keys.Escape) //Close Form
             {
                  Close();
-            }
-
-            
+            } 
         }
 
 
@@ -363,6 +364,11 @@ namespace SelectiveScreenshot
                 thisForm = this;
                 this.Hide();
             }
+             if (keyData == Keys.Space)
+             {
+                MakeScreenshotNow();
+                CloseForm();
+             }
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
